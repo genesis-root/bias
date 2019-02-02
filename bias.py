@@ -1,6 +1,4 @@
-import spacy
-import en_core_web_sm
-nlp = en_core_web_sm.load()
+
 import textblob
 from textblob import TextBlob
 
@@ -25,3 +23,4 @@ economist = bias("out.txt")
 breitbart = bias("economist.txt")
 print(economist)
 print(breitbart)
+
