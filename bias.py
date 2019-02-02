@@ -25,6 +25,3 @@ economist = bias("out.txt")
 breitbart = bias("economist.txt")
 print(economist)
 print(breitbart)
-
-
-
