@@ -23,8 +23,8 @@ def bias(text_file):
 
 economist = bias("out.txt")
 breitbart = bias("economist.txt")
-print(economist + " percent of economist.txt contains biased language.")
-print(breitbart + " percent of breitbart.txt contains biased language.")
+print(economist)
+print(breitbart)
 
 
 
