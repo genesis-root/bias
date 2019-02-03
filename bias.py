@@ -11,10 +11,19 @@ def bias(text_file):
     list = tokenized(text_file)
     for w in range(len(list)):
         word = TextBlob(list[w])
-        if word.sentiment.polarity < 0:
+        if word.sentiment.polarity < -.5:
+            bias = bias + .5
+        if word.sentiment.polarity > .5:
+            bias = bias + .5
+        if word.sentiment.polarity > -.5 and word.sentiment.polarity < 0:
+            bias = bias + .25
+        if word.sentiment.polarity < .5 and word.sentiment.polarity > 0:
+            bias = bias + .25
+        if word.sentiment.polarity > .5:
             bias = bias + 1
-        if word.sentiment.polarity > 0:
+        if word.sentiment.polarity < -.5:
             bias = bias + 1
+        
     return (bias/len(tokenized(text_file))) * 100
 
 
