@@ -3,7 +3,13 @@ bias.py tokenizes a text file, then gives a sentiment polarity score (-1:1) to e
 
 https://textblob.readthedocs.io/en/dev/quickstart.html#sentiment-analysis
 
-# Directions
-1.  Install the **textblob** package with **pip install textblob**.
-2.  When you call the function **bias()** be sure to change 'economist.txt' to 'whatevertextfile.txt' you want to use. And make sure this txt file is in the same folder as bias.py
-3. Run it!
+# Setup
+
+Install the dependencies listed in requirements.txt, e.g:
+```bash
+pip install -r requirements.txt
+```
+
+# Usage
+
+When you call the function **bias()** be sure to change 'economist.txt' to 'whatevertextfile.txt' you want to use. And make sure this txt file is in the same folder as bias.py
