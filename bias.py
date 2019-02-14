@@ -1,20 +1,20 @@
+import sys
+
 import textblob
 from textblob import TextBlob
 
 
-def tokenized(text_file):
-    with open(text_file, encoding='utf8', errors='ignore') as f:
-        text = f.read()
-        return text.split()
+def tokenize(text_file):
+    text = text_file.read()
+    return text.split()
 
 
 def bias(text_file):
     bias = 0
-    list = tokenized(text_file)
-    print(text_file)
+    tokenized = tokenize(text_file)
     red_flags = ["alien", 'evil', 'monster', 'good', 'aliens']
-    for w in range(len(list)):
-        word = TextBlob(list[w])
+    for w in range(len(tokenized)):
+        word = TextBlob(tokenized[w])
         if word.sentiment.polarity < -.5:
             bias = bias + .5
         if word.sentiment.polarity > .5:
@@ -30,15 +30,9 @@ def bias(text_file):
         if word.lower() in red_flags:
             bias = bias + 2
             print(word)
-    return (bias / len(tokenized(text_file))) * 100
+    return (bias / len(tokenized)) * 100
 
-breitbart = bias("breitbart.txt")
-economist = bias("economist.txt")
-bbc = bias("bbc.txt")
-
-print('Breitbart News:')
-print(breitbart)
-print('The Economist:')
-print(economist)
-print('BBC:')
-print(bbc)
+if __name__ == "__main__":
+    with open(sys.argv[1], encoding='utf-8', errors='ignore') as infile:
+        bias_data = bias(infile)
+        print(bias_data)

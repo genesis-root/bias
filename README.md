@@ -12,4 +12,14 @@ pip install -r requirements.txt
 
 # Usage
 
-When you call the function **bias()** be sure to change 'economist.txt' to 'whatevertextfile.txt' you want to use. And make sure this txt file is in the same folder as bias.py
+Call **bias.bias()** or execute bias.py with text file location as first argument. See some sample text files in **examples/** directory. Examples of usage:
+
+```python
+from bias import bias
+with open("./examples/breitbart_short.txt", 'r') as infile:
+    bias(infile)
+```
+
+```bash
+python bias.py ./examples/economist.txt
+```
